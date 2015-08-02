@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
+  
   <title><![CDATA[Avalon]]></title>
   
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
+  <link href="http://yoursite.com//"/>
   <updated>2015-04-02T11:39:46.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://yoursite.com//</id>
   
   <author>
     <name><![CDATA[迷城幻境]]></name>
