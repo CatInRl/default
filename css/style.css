@@ -1192,6 +1192,9 @@ a {
 #article-nav #article-nav-older {
   float: right;
 }
+#toc li {
+  list-style-type: none;
+}
 @-moz-keyframes cd-bounce-1 {
   0% {
     opacity: 0;
