@@ -33,7 +33,7 @@
     <link href="http://www.coredump.top/2015/04/02/config%20for%20vsftpd%20in%20ubuntu/"/>
     <id>http://www.coredump.top/2015/04/02/config for vsftpd in ubuntu/</id>
     <published>2015-04-02T11:39:46.000Z</published>
-    <updated>2015-08-09T12:18:54.000Z</updated>
+    <updated>2015-08-09T12:20:33.000Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <!-- tocstop -->
 <p>&#x6700;&#x8FD1;&#x4ECE;&#x5404;&#x65B9;&#x9762;&#x63A5;&#x89E6;&#x5230;&#x4E86;vsftpd&#xFF0C;&#x8DF3;&#x4E86;&#x597D;&#x51E0;&#x4E2A;&#x5751;&#xFF0C;&#x5728;&#x6B64;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x3002;</p>
@@ -141,7 +141,7 @@ auth required pam.listfile.so item=user sense=deny file=/etcftpusers onerr=succe
 <p>&#x6700;&#x8FD1;&#x4ECE;&#x5404;&#x65B9;&#x9762;&#x63A5;&#x89E6;&#x5230;&#x4E86;vsftpd&#xFF0C;&#x8DF3;&#x4E]]>
     </summary>
     
-      <category term="linux ubuntu" scheme="http://www.coredump.top/tags/linux-ubuntu/"/>
+      <category term="linux,ubuntu" scheme="http://www.coredump.top/tags/linux-ubuntu/"/>
     
   </entry>
   
