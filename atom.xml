@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  
   <title><![CDATA[Avalon]]></title>
   
   <link href="/atom.xml" rel="self"/>
-  <link href="http://www.coredump.top//"/>
+  <link href="http://www.coredump.top/"/>
   <updated>2015-08-09T13:06:05.000Z</updated>
-  <id>http://www.coredump.top//</id>
+  <id>http://www.coredump.top/</id>
   
   <author>
     <name><![CDATA[迷城幻境]]></name>
