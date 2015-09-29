@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SHELL编程拾遗(1) | Avalon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;lt;!-- toc --&amp;gt;
+&amp;lt;!-- tocstop --&amp;gt;
+shell&amp;#x7F16;&amp;#x7A0B;&amp;#x5BF9;&amp;#x4E8E;linux&amp;#x7CFB;&amp;#x7EDF;&amp;#x7BA1;&amp;#x7406;&amp;#x975E;&amp;#x5E38;&amp;#x91CD;&amp;#x8981;&amp;#xFF0C;&amp;#x672C;&amp;#x6587;&amp;#x6574;&amp;#x7406;&amp;#x4E86;&amp;#x6700;&amp;#x8FD1;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SHELL编程拾遗(1)">
+<meta property="og:url" content="http://www.coredump.top/2015/09/19/shell knowledge1/index.html">
+<meta property="og:site_name" content="Avalon">
+<meta property="og:description" content="&amp;lt;!-- toc --&amp;gt;
+&amp;lt;!-- tocstop --&amp;gt;
+shell&amp;#x7F16;&amp;#x7A0B;&amp;#x5BF9;&amp;#x4E8E;linux&amp;#x7CFB;&amp;#x7EDF;&amp;#x7BA1;&amp;#x7406;&amp;#x975E;&amp;#x5E38;&amp;#x91CD;&amp;#x8981;&amp;#xFF0C;&amp;#x672C;&amp;#x6587;&amp;#x6574;&amp;#x7406;&amp;#x4E86;&amp;#x6700;&amp;#x8FD1;">
+<meta property="og:updated_time" content="2015-09-29T02:08:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SHELL编程拾遗(1)">
+<meta name="twitter:description" content="&amp;lt;!-- toc --&amp;gt;
+&amp;lt;!-- tocstop --&amp;gt;
+shell&amp;#x7F16;&amp;#x7A0B;&amp;#x5BF9;&amp;#x4E8E;linux&amp;#x7CFB;&amp;#x7EDF;&amp;#x7BA1;&amp;#x7406;&amp;#x975E;&amp;#x5E38;&amp;#x91CD;&amp;#x8981;&amp;#xFF0C;&amp;#x672C;&amp;#x6587;&amp;#x6574;&amp;#x7406;&amp;#x4E86;&amp;#x6700;&amp;#x8FD1;">
+  
+    <link rel="alternative" href="/atom.xml" title="Avalon" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <meta name="baidu-site-verification" content="2Va1yFSg2C" />
+  <meta name="google-site-verification" content="QhKpiWf8VaOaV3PrwYZn-rVINOdkP6lPXtv-ARgQEyY" />
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66403998-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xi32s.com1.z0.glb.clouddn.com/coredumpavatar.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">迷城幻境</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/nail1208" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://www.weibo.com/destiny1208" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/_tsubasa" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vsftpd/" style="font-size: 10px;">vsftpd</a> <a href="/tags/运维/" style="font-size: 20px;">运维</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">这个人很写，什么都没有懒。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">迷城幻境</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xi32s.com1.z0.glb.clouddn.com/coredumpavatar.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">迷城幻境</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/nail1208" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://www.weibo.com/destiny1208" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/_tsubasa" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-shell knowledge1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/19/shell knowledge1/" class="article-date">
+  	<time datetime="2015-09-19T08:23:01.000Z" itemprop="datePublished">2015-09-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SHELL编程拾遗(1)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运维/">运维</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊字符"><span class="toc-number">1.</span> <span class="toc-text">特殊字符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text">,</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.</span> <span class="toc-text">:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.3.</span> <span class="toc-text">?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.4.</span> <span class="toc-text">${}</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.5.</span> <span class="toc-text">()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#~"><span class="toc-number">1.6.</span> <span class="toc-text">~</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制字符"><span class="toc-number">1.7.</span> <span class="toc-text">控制字符</span></a></li></ol></li></ol>
+        </div>
+        <!-- toc -->
+<!-- tocstop -->
+<p>shell&#x7F16;&#x7A0B;&#x5BF9;&#x4E8E;linux&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x672C;&#x6587;&#x6574;&#x7406;&#x4E86;&#x6700;&#x8FD1;&#x63A5;&#x89E6;&#x5230;&#x7684;&#xFF0C;&#x4EE5;&#x524D;&#x4E0D;&#x77E5;&#x9053;&#x7684;shell&#x7F16;&#x7A0B;&#x77E5;&#x8BC6;&#x70B9;&#x3002;</p>
+<h2 id="&#x7279;&#x6B8A;&#x5B57;&#x7B26;">&#x7279;&#x6B8A;&#x5B57;&#x7B26;</h2><h3 id=""><code>,</code></h3><p>&#x94FE;&#x63A5;&#x4E00;&#x7CFB;&#x5217;&#x7B97;&#x672F;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x8FD4;&#x56DE;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;&#x7ED3;&#x679C;&#x3002;<br>&#x6BD4;&#x5982;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> a=(b=<span class="number">9</span>,<span class="number">12</span>+<span class="number">3</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span>   <span class="comment">#15</span></span><br></pre></td></tr></table></figure></p>
+<h3 id=""><code>:</code></h3><p>&#x7A7A;&#x547D;&#x4EE4;&#xFF0C;&#x5C5E;&#x4E8E;<code>bash</code>&#x7684;<code>build-in</code>&#x547D;&#x4EE4;&#xFF0C;&#x8FD4;&#x56DE;<code>0</code>&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x547D;&#x4EE4;<code>true</code>&#xFF1A;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:</span><br><span class="line"><span class="built_in">echo</span> $?   <span class="comment">#0</span></span><br></pre></td></tr></table></figure>
+<p>&#x53EF;&#x5728;while&#x540E;&#x4F7F;&#x7528;&#xFF0C;&#x4F7F;&#x5FAA;&#x73AF;&#x6210;&#x4E3A;&#x6B7B;&#x5FAA;&#x73AF;&#xFF1A;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>:</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>&#x4E5F;&#x53EF;&#x5728;if/then&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4F5C;&#x4E3A;&#x5360;&#x4F4D;&#x7B26;&#xFF0C;&#x8868;&#x793A;&#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x505A;:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition</span><br><span class="line"><span class="keyword">then</span>:</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>&#x4E0E;<code>&gt;</code>&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x53EF;&#x4EE5;&#x6E05;&#x7A7A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x4E0D;&#x6539;&#x53D8;&#x6587;&#x4EF6;&#x6743;&#x9650;:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:&gt; tmp   <span class="comment">#&#x6E05;&#x7A7A;&#x6587;&#x4EF6;tmp &#x7C7B;&#x4F3C;&#x4E8E; cat /dev/null &gt; tmp</span></span><br><span class="line">:&gt;&gt; tmp1 <span class="comment">#tmp1&#x5982;&#x5B58;&#x5728;&#xFF0C;&#x4E0D;&#x53D1;&#x751F;&#x4EFB;&#x4F55;&#x6539;&#x53D8;&#xFF0C;&#x5982;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x65B0;&#x5EFA;&#x8BE5;&#x6587;&#x4EF6;</span></span><br></pre></td></tr></table></figure>
+<h3 id=""><code>?</code></h3><p>&#x6D4B;&#x8BD5;&#x53D8;&#x91CF;&#x662F;&#x5426;&#x88AB;set:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">${CLASSPATH?}</span></span><br></pre></td></tr></table></figure>
+<h3 id=""><code>${}</code></h3><p>&#x53C2;&#x6570;&#x66FF;&#x6362;&#x7B26;&#x53F7;:</p>
+<ul>
+<li><code>${para-default},${para:-default}</code>&#xFF1A;para&#x672A;&#x88AB;set&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5426;&#x5219;&#x4F7F;&#x7528;para&#x503C;&#xFF1B;&#x540E;&#x8005;&#xFF08;&#x5E26;:&#xFF09;&#x5728;para&#x4E3A;&#x7A7A;&#x65F6;&#x4E5F;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;</li>
+<li><code>${para=default},${para:=default}</code>&#xFF1A;&#x4E0E;&#x4E0A;&#x9762;&#x76F8;&#x540C;</li>
+<li><code>${para+default},${para:+default}</code>&#xFF1A;para&#x88AB;set&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5426;&#x5219;&#x4F7F;&#x7528;&#x7A7A;&#x503C;&#xFF1B;&#x540E;&#x8005;&#xFF08;&#x5E26;:&#xFF09;&#x5728;para&#x4E3A;&#x7A7A;&#x65F6;&#x4E5F;&#x662F;&#x7528;&#x7A7A;&#x503C;</li>
+<li><code>${para?errormsg},${para:?errormsg}</code>&#xFF1A;para&#x88AB;set&#x4E14;&#x4E0D;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;para&#x503C;&#xFF0C;&#x5426;&#x5219;&#x6253;&#x5370;errormsg</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">USER1=username</span><br><span class="line">USER2=</span><br><span class="line"><span class="built_in">unset</span> USER3</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER1-`whoami`}</span>      <span class="comment">#username</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER2-`whoami`}</span>      <span class="comment">#</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER3-`whoami`}</span>      <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER1:-`whoami`}</span>     <span class="comment">#username</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER2:-`whoami`}</span>     <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER3:-`whoami`}</span>     <span class="comment">#root</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER1=`whoami`}</span>      <span class="comment">#username</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER2=`whoami`}</span>      <span class="comment">#</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER3=`whoami`}</span>      <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER1:=`whoami`}</span>     <span class="comment">#username</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER2:=`whoami`}</span>     <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER3:=`whoami`}</span>     <span class="comment">#root</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER1+`whoami`}</span>      <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER2+`whoami`}</span>      <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER3+`whoami`}</span>      <span class="comment">#</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER1:+`whoami`}</span>     <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER2:+`whoami`}</span>     <span class="comment">#</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER3:+`whoami`}</span>     <span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER1?`whoami`}</span>      <span class="comment">#username</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER2?`whoami`}</span>      <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER3?`whoami`}</span>      <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER1:?`whoami`}</span>     <span class="comment">#username</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER2:?`whoami`}</span>     <span class="comment">#root</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${USER3:?`whoami`}</span>     <span class="comment">#root</span></span><br></pre></td></tr></table></figure>
+<h3 id=""><code>()</code></h3><p>&#x5176;&#x4E2D;&#x591A;&#x4E2A;&#x547D;&#x4EE4;&#x4E3A;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x7EC4;&#x3002;&#x547D;&#x4EE4;&#x7EC4;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5B50;shell&#x6765;&#x8FD0;&#x884C;&#x3002;</p>
+<h3 id="~"><code>~</code></h3><p><code>~</code>&#x8868;&#x793A;home&#x76EE;&#x5F55;,&#x76F8;&#x5F53;&#x4E8E;<code>$HOME</code>,&#x53EF;&#x540E;&#x8DDF;&#x7528;&#x6237;&#x540D;<br><code>~+</code>&#x8868;&#x793A;&#x5F53;&#x524D;&#x76EE;&#x5F55;,&#x76F8;&#x5F53;&#x4E8E;<code>$PWD</code><br><code>~-</code>&#x8868;&#x793A;&#x4E4B;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;,&#x76F8;&#x5F53;&#x4E8E;<code>$OLDPWD</code></p>
+<h3 id="&#x63A7;&#x5236;&#x5B57;&#x7B26;">&#x63A7;&#x5236;&#x5B57;&#x7B26;</h3><ul>
+<li><code>control-B</code> &#x5149;&#x6807;&#x540E;&#x9000;</li>
+<li><code>control-C</code> break</li>
+<li><code>control-D</code> &#x7C7B;&#x4F3C;exit;EOF</li>
+<li><code>control-G</code> beep</li>
+<li><code>control-H</code> backspace</li>
+<li><code>control-I</code> tab</li>
+<li><code>control-J</code> new line</li>
+<li><code>control-K</code> &#x5782;&#x76F4;tab</li>
+<li><code>control-L</code> clear</li>
+<li><code>control-M</code> enter</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/02/config for vsftpd in ubuntu/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vsftpd在ubuntu中的初步配置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="shell knowledge1" data-title="SHELL编程拾遗(1)" data-url="http://www.coredump.top/2015/09/19/shell knowledge1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tsubasa"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 迷城幻境
+    	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
