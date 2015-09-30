@@ -19,7 +19,7 @@ expr &amp;quot;$string&amp;quot; : &amp;apos;$substring&amp;apos; &amp;#x5176;&a
 &amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x957F;&amp;#x5EA6;
 expr length string
 expr &amp;quot;$string&amp;quot; : &amp;apos;$substring&amp;apos; &amp;#x5176;&amp;#x4E2D;&amp;#x5192;&amp;#x53F7;&amp;#x540E;&amp;#x4E3A;&amp;#x4ECE;&amp;#x5">
-<meta property="og:updated_time" content="2015-09-30T17:38:17.000Z">
+<meta property="og:updated_time" content="2015-09-30T17:40:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SHELL编程拾遗(2) 字符串操作">
 <meta name="twitter:description" content="&amp;lt;!-- toc --&amp;gt;
@@ -258,10 +258,10 @@ expr &amp;quot;$string&amp;quot; : &amp;apos;$substring&amp;apos; &amp;#x5176;&a
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="number">1234512345</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string#1*4}</span>    <span class="comment">#512345</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string##1*4}</span>   <span class="comment">#5</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string%2*5}</span>    <span class="comment">#123451</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string%%2*5}</span>   <span class="comment">#1</span></span><br></pre></td></tr></table></figure>
 <h3 id="&#x5B50;&#x4E32;&#x66FF;&#x6362;">&#x5B50;&#x4E32;&#x66FF;&#x6362;</h3><ul>
-<li>${string/substring/replacement} &#x66FF;&#x6362;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
-<li>${string//substring/replacement} &#x66FF;&#x6362;&#x6240;&#x6709;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
-<li>${string/#substring/replacement} &#x5982;&#x679C;&#x5F00;&#x5934;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
-<li>${string/%substring/replacement} &#x5982;&#x679C;&#x7ED3;&#x5C3E;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
+<li><code>${string/substring/replacement}</code> &#x66FF;&#x6362;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
+<li><code>${string//substring/replacement}</code> &#x66FF;&#x6362;&#x6240;&#x6709;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
+<li><code>${string/#substring/replacement}</code> &#x5982;&#x679C;&#x5F00;&#x5934;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
+<li><code>${string/%substring/replacement}</code> &#x5982;&#x679C;&#x7ED3;&#x5C3E;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
 </ul>
 
       

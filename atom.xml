@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.coredump.top/"/>
-  <updated>2015-09-30T17:38:17.000Z</updated>
+  <updated>2015-09-30T17:40:45.000Z</updated>
   <id>http://www.coredump.top/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://www.coredump.top/2015/09/29/shell%20knowledge2/"/>
     <id>http://www.coredump.top/2015/09/29/shell knowledge2/</id>
     <published>2015-09-29T08:32:01.000Z</published>
-    <updated>2015-09-30T17:38:17.000Z</updated>
+    <updated>2015-09-30T17:40:45.000Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <!-- tocstop -->
 <h3 id="&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;">&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;</h3><ul>
@@ -45,10 +45,10 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="number">1234512345</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string#1*4}</span>    <span class="comment">#512345</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string##1*4}</span>   <span class="comment">#5</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string%2*5}</span>    <span class="comment">#123451</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string%%2*5}</span>   <span class="comment">#1</span></span><br></pre></td></tr></table></figure>
 <h3 id="&#x5B50;&#x4E32;&#x66FF;&#x6362;">&#x5B50;&#x4E32;&#x66FF;&#x6362;</h3><ul>
-<li>${string/substring/replacement} &#x66FF;&#x6362;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
-<li>${string//substring/replacement} &#x66FF;&#x6362;&#x6240;&#x6709;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
-<li>${string/#substring/replacement} &#x5982;&#x679C;&#x5F00;&#x5934;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
-<li>${string/%substring/replacement} &#x5982;&#x679C;&#x7ED3;&#x5C3E;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
+<li><code>${string/substring/replacement}</code> &#x66FF;&#x6362;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
+<li><code>${string//substring/replacement}</code> &#x66FF;&#x6362;&#x6240;&#x6709;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
+<li><code>${string/#substring/replacement}</code> &#x5982;&#x679C;&#x5F00;&#x5934;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
+<li><code>${string/%substring/replacement}</code> &#x5982;&#x679C;&#x7ED3;&#x5C3E;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
 </ul>
 ]]></content>
     <summary type="html">
