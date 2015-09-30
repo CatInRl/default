@@ -3,18 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>相册 | Avalon</title>
+  <title>SHELL编程拾遗(2) 字符串操作 | Avalon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x56FE;&amp;#x7247;&amp;#x6765;&amp;#x81EA;instagram&amp;#xFF0C;&amp;#x6B63;&amp;#x5728;&amp;#x52A0;&amp;#x8F7D;&amp;#x4E2D;&amp;#x2026;">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://www.coredump.top/instagram/index.html">
+  <meta name="description" content="&amp;lt;!-- toc --&amp;gt;
+&amp;lt;!-- tocstop --&amp;gt;
+&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x957F;&amp;#x5EA6;
+expr length string
+expr &amp;quot;$string&amp;quot; : &amp;apos;$substring&amp;apos; &amp;#x5176;&amp;#x4E2D;&amp;#x5192;&amp;#x53F7;&amp;#x540E;&amp;#x4E3A;&amp;#x4ECE;&amp;#x5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SHELL编程拾遗(2) 字符串操作">
+<meta property="og:url" content="http://www.coredump.top/2015/09/29/shell knowledge2/index.html">
 <meta property="og:site_name" content="Avalon">
-<meta property="og:description" content="&amp;#x56FE;&amp;#x7247;&amp;#x6765;&amp;#x81EA;instagram&amp;#xFF0C;&amp;#x6B63;&amp;#x5728;&amp;#x52A0;&amp;#x8F7D;&amp;#x4E2D;&amp;#x2026;">
-<meta property="og:updated_time" content="2015-03-14T13:09:07.000Z">
+<meta property="og:description" content="&amp;lt;!-- toc --&amp;gt;
+&amp;lt;!-- tocstop --&amp;gt;
+&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x957F;&amp;#x5EA6;
+expr length string
+expr &amp;quot;$string&amp;quot; : &amp;apos;$substring&amp;apos; &amp;#x5176;&amp;#x4E2D;&amp;#x5192;&amp;#x53F7;&amp;#x540E;&amp;#x4E3A;&amp;#x4ECE;&amp;#x5">
+<meta property="og:updated_time" content="2015-09-30T17:38:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="&amp;#x56FE;&amp;#x7247;&amp;#x6765;&amp;#x81EA;instagram&amp;#xFF0C;&amp;#x6B63;&amp;#x5728;&amp;#x52A0;&amp;#x8F7D;&amp;#x4E2D;&amp;#x2026;">
+<meta name="twitter:title" content="SHELL编程拾遗(2) 字符串操作">
+<meta name="twitter:description" content="&amp;lt;!-- toc --&amp;gt;
+&amp;lt;!-- tocstop --&amp;gt;
+&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x957F;&amp;#x5EA6;
+expr length string
+expr &amp;quot;$string&amp;quot; : &amp;apos;$substring&amp;apos; &amp;#x5176;&amp;#x4E2D;&amp;#x5192;&amp;#x53F7;&amp;#x540E;&amp;#x4E3A;&amp;#x4ECE;&amp;#x5">
   
     <link rel="alternative" href="/atom.xml" title="Avalon" type="application/atom+xml">
   
@@ -180,7 +192,13 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-instagram" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-shell knowledge2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/29/shell knowledge2/" class="article-date">
+  	<time datetime="2015-09-29T08:32:01.000Z" itemprop="datePublished">2015-09-29</time>
+</a>
+    </div>
   
   <div class="article-inner">
     
@@ -191,7 +209,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      SHELL编程拾遗(2) 字符串操作
     </h1>
   
 
@@ -199,6 +217,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运维/">运维</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -209,17 +231,55 @@
       
         <div id="toc" class="toc-article">
           <strong class="toc-title">文章目录</strong>
-          
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串长度"><span class="toc-number">1.</span> <span class="toc-text">字符串长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提取子串"><span class="toc-number">2.</span> <span class="toc-text">提取子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子串削除"><span class="toc-number">3.</span> <span class="toc-text">子串削除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子串替换"><span class="toc-number">4.</span> <span class="toc-text">子串替换</span></a></li></ol>
         </div>
-        <p><div class="instagram" data-client-id="b1493969cca44a25ae2b911872c9b3ef" data-user-id="49925407"><br>    <a href="http://instagram.com/nail1208" target="_blank" class="open-ins">&#x56FE;&#x7247;&#x6765;&#x81EA;instagram&#xFF0C;&#x6B63;&#x5728;&#x52A0;&#x8F7D;&#x4E2D;&#x2026;</a><br></div></p>
-<script src="/js/jquery.lazyload.js"></script>
-<script src="/js/instagram.js"></script>
+        <!-- toc -->
+<!-- tocstop -->
+<h3 id="&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;">&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;</h3><ul>
+<li><code>expr length string</code></li>
+<li><code>expr &quot;$string&quot; : &apos;$substring&apos;</code> &#x5176;&#x4E2D;&#x5192;&#x53F7;&#x540E;&#x4E3A;&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x5F00;&#x5934;&#x7684;&#x5339;&#x914D;(<code>expr match &quot;$string&quot; &apos;$substring&apos;</code>)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="number">112233</span></span><br><span class="line">expr <span class="string">&quot;<span class="variable">$string</span>&quot;</span> : <span class="string">&apos;.*&apos;</span>    <span class="comment">#6</span></span><br><span class="line">expr <span class="string">&quot;<span class="variable">$string</span>&quot;</span> : <span class="string">&apos;1*&apos;</span>    <span class="comment">#2</span></span><br><span class="line">expr <span class="string">&quot;<span class="variable">$string</span>&quot;</span> : <span class="string">&apos;2*&apos;</span>    <span class="comment">#0</span></span><br><span class="line">expr <span class="string">&quot;<span class="variable">$string</span>&quot;</span> : <span class="string">&apos;1*2&apos;</span>   <span class="comment">#3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>expr index $string $substring</code> &#x5339;&#x914D;&#x5B50;&#x4E32;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x4F4D;&#x7F6E;</li>
+</ul>
+<h3 id="&#x63D0;&#x53D6;&#x5B50;&#x4E32;">&#x63D0;&#x53D6;&#x5B50;&#x4E32;</h3><ul>
+<li><code>${string:position}</code> &#x5176;&#x4E2D;position&#x4E3A;&#x8D1F;&#x6570;&#x53EF;&#x4EE5;&#x53CD;&#x5411;&#x63D0;&#x53D6;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x524D;&#x9762;&#x52A0;&#x7A7A;&#x683C;&#x6216;&#x8005;&#x7528;&#x62EC;&#x53F7;&#x8F6C;&#x4E49;</li>
+<li><code>${string:position:length}</code> </li>
+<li><code>expr substr $string $position $length</code></li>
+<li><code>expr match &quot;$string&quot; &apos;\($substring\)</code></li>
+<li><code>expr &quot;$string&quot; : &apos;\($substring\)</code></li>
+</ul>
+<h3 id="&#x5B50;&#x4E32;&#x524A;&#x9664;">&#x5B50;&#x4E32;&#x524A;&#x9664;</h3><ul>
+<li><code>${string#substring}</code> &#x4ECE;&#x5DE6;&#x4FA7;&#x5F00;&#x59CB;&#x524A;&#x9664;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7684;&#x5B50;&#x4E32;</li>
+<li><code>${string##substring}</code> &#x4ECE;&#x5DE6;&#x4FA7;&#x5F00;&#x59CB;&#x524A;&#x9664;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7684;&#x5B50;&#x4E32;</li>
+<li><code>${string%substring}</code> &#x4ECE;&#x53F3;&#x4FA7;&#x5F00;&#x59CB;&#x524A;&#x9664;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7684;&#x5B50;&#x4E32;</li>
+<li><code>${string%%substring}</code> &#x4ECE;&#x53F3;&#x4FA7;&#x5F00;&#x59CB;&#x524A;&#x9664;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7684;&#x5B50;&#x4E32;</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="number">1234512345</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string#1*4}</span>    <span class="comment">#512345</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string##1*4}</span>   <span class="comment">#5</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string%2*5}</span>    <span class="comment">#123451</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${string%%2*5}</span>   <span class="comment">#1</span></span><br></pre></td></tr></table></figure>
+<h3 id="&#x5B50;&#x4E32;&#x66FF;&#x6362;">&#x5B50;&#x4E32;&#x66FF;&#x6362;</h3><ul>
+<li>${string/substring/replacement} &#x66FF;&#x6362;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
+<li>${string//substring/replacement} &#x66FF;&#x6362;&#x6240;&#x6709;&#x5339;&#x914D;&#x7ED3;&#x679C;</li>
+<li>${string/#substring/replacement} &#x5982;&#x679C;&#x5F00;&#x5934;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
+<li>${string/%substring/replacement} &#x5982;&#x679C;&#x7ED3;&#x5C3E;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x66FF;&#x6362;</li>
+</ul>
+
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2015/09/19/shell knowledge1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SHELL编程拾遗(1)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -243,7 +303,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="instagram" data-title="相册" data-url="http://www.coredump.top/instagram/index.html"></div>
+	<div class="ds-thread" data-thread-key="shell knowledge2" data-title="SHELL编程拾遗(2) 字符串操作" data-url="http://www.coredump.top/2015/09/29/shell knowledge2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -285,7 +345,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
