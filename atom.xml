@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.coredump.top/"/>
-  <updated>2015-09-30T17:40:45.000Z</updated>
+  <updated>2015-10-12T01:59:18.000Z</updated>
   <id>http://www.coredump.top/</id>
   
   <author>
@@ -13,6 +13,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[bash常用内置命令]]></title>
+    <link href="http://www.coredump.top/2015/10/11/bash%20buildins/"/>
+    <id>http://www.coredump.top/2015/10/11/bash buildins/</id>
+    <published>2015-10-11T10:13:01.000Z</published>
+    <updated>2015-10-12T01:59:18.000Z</updated>
+    <content type="html"><![CDATA[<!-- toc -->
+<!-- tocstop -->
+<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x5E38;&#x7528;&#x7684;bash&#x5185;&#x7F6E;&#x547D;&#x4EE4;&#x3002;&#x7531;&#x4E8E;&#x4E0D;&#x540C;&#x53D1;&#x884C;&#x7248;&#x4E4B;&#x95F4;&#x5B9E;&#x73B0;&#x6709;&#x6240;&#x5DEE;&#x5F02;&#xFF0C;&#x67D0;&#x4E9B;&#x6307;&#x4EE4;&#x4EE5;&#x53CA;&#x53C2;&#x6570;&#x53EF;&#x80FD;&#x4E0D;&#x540C;&#x3002;</p>
+<ol>
+<li><p><code>echo</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">&quot;a\na&quot;</span>   <span class="comment"># -e &#x8FDB;&#x884C;&#x53CD;&#x659C;&#x6760;&#x8F6C;&#x4E49;   </span></span><br><span class="line">a</span><br><span class="line">a</span><br><span class="line">$ <span class="built_in">echo</span> -E <span class="string">&quot;a\na&quot;</span>   <span class="comment"># -E &#x5FFD;&#x7565;&#x53CD;&#x659C;&#x6760;&#x8F6C;&#x4E49;    ubuntu&#x4E2D;&#x4E3A;&#x9ED8;&#x8BA4;&#x9009;&#x9879;</span></span><br><span class="line">a\na</span><br><span class="line">$ <span class="built_in">echo</span> -n <span class="string">&quot;a\na&quot;</span>   <span class="comment"># -n &#x4E0D;&#x4EE5;&#x56DE;&#x8F66;&#x7ED3;&#x675F;</span></span><br><span class="line">a</span><br><span class="line">a$</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>printf</code><br>&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;C&#x4E2D;&#x7684;<code>printf</code></p>
+</li>
+<li><p><code>read</code><br>&#x4ECE;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x6D41;&#x4E2D;&#x8BFB;&#x53D6;&#x8F93;&#x5165;&#x8BBE;&#x7F6E;&#x53D8;&#x91CF;&#xFF0C;<code>read foo</code>(&#x53D8;&#x91CF;&#x88AB;&#x8BBE;&#x7F6E;&#x65F6;&#x4E0D;&#x7528;$)&#xFF0C;<code>read</code>&#x540E;&#x4E0D;&#x8DDF;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x4F1A;&#x628A;&#x503C;&#x8BBE;&#x7F6E;&#x5230;<code>$REPLY</code>&#x3002;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">read</span> <span class="operator">-s</span> -p <span class="string">&quot;input:&quot;</span> <span class="comment"># -s &#x8868;&#x793A;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x4E0D;&#x56DE;&#x663E; -p &#x6307;&#x5B9A;&#x63D0;&#x793A;&#x6587;&#x5B57;</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$REPLY</span></span><br><span class="line"><span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>set</code><br>&#x8BBE;&#x7F6E;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;($1,$2,$3&#x2026;)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">set</span> `date`</span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$@</span></span><br><span class="line">Sun Oct <span class="number">11</span> <span class="number">06</span>:<span class="number">23</span>:<span class="number">17</span> PDT <span class="number">2015</span></span><br><span class="line">$ <span class="built_in">set</span> <span class="variable">$2</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$@</span></span><br><span class="line">Oct</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>unset</code><br>&#x5C06;&#x53D8;&#x91CF;&#x7F6E;&#x7A7A;</p>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<!-- toc -->
+<!-- tocstop -->
+<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x5E38;&#x7528;&#x7684;bash&#x5185;&#x7F6E;&#x547D;&#x4EE4;&#x3002;&#x7531]]>
+    </summary>
+    
+      <category term="bash" scheme="http://www.coredump.top/tags/bash/"/>
+    
+      <category term="linux" scheme="http://www.coredump.top/tags/linux/"/>
+    
+      <category term="shell" scheme="http://www.coredump.top/tags/shell/"/>
+    
+      <category term="运维" scheme="http://www.coredump.top/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[SHELL编程拾遗(2) 字符串操作]]></title>
