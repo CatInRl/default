@@ -1,0 +1,148 @@
+export PATH=/usr/local/bin:$PATH
+alias ..="cd .."
+alias ...="cd ../.."
+#alias ls="ls -h"
+alias ll="ls -l"
+alias la="ll -a"
+alias grep="grep --color"
+alias egrep="egrep --color"
+alias fgrep="fgrep --color"
+alias pss="ps aux | grep "
+alias websiteget="wget --random-wait -r -p -e robots=off -U mozilla"
+alias itest="ping www.baidu.com -c 1"
+#alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
+alias racket="/Applications/Racket\ v6.1.1/bin/racket"
+#alias portal1="cd ~/Games/unl-prtl/portal/ && wine hl2.exe -steam -game portal &"
+#alias portal2="cd ~/Games/P2/ && wine Launcher.exe &"
+alias d2w="cd ~/Games/Diablo\ II/ && wine D2Loader.exe -w -pdir 113MAPG -direct -nohide -txt &"
+alias d2="cd ~/Games/Diablo\ II/ && wine D2Loader.exe -pdir 113MAPG -direct -nohide -txt &"
+alias Code="cd ~/Code/"
+alias Tmp="cd ~/Tmp/"
+export PAGER=vimpager
+alias less=$PAGER
+alias zless=$PAGER
+#alias manrandom="man $(ls /bin | shuf | head -1)"
+export HISTTIMEFORMAT="%d/%m/%y %T "
+#osx
+alias bupdate="brew update;brew upgrade --cleanup;brew cleanup"
+
+extract() {
+	if [ -f $1 ] ; then
+		case $1 in
+			*.tar.bz2)	tar xjf $1		;;
+			*.tar.gz)	tar xzf $1		;;
+			*.bz2)		bunzip2 $1		;;
+			*.rar)		unrar e $1		;;
+			*.gz)		gunzip	$1		;;
+			*.tar)		tar	xf 	$1		;;
+			*.tbz2)		tar xjf $1		;;
+			*.tgz)		tar xzf $1		;;
+			*.zip)		unzip	$1		;;
+			*.Z)		uncompress	$1	;;
+			*.7z)		7z x 	$1		;;
+			*)			echo "'$1' can't be extracted via extract()"	;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
+}
+
+explain () {
+  if [ "$#" -eq 0 ]; then
+    while read  -p "Command: " cmd; do
+      curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+    done
+    echo "Bye!"
+  elif [ "$#" -eq 1 ]; then
+    curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+  else
+    echo "Usage"
+    echo "explain                  interactive mode."
+    echo "explain 'cmd -o | ...'   one quoted command to explain it."
+  fi
+}
+
+gmail() { curl -u "$1" --silent "https://mail.google.com/mail/feed/atom" | sed -e 's/<\/fullcount.*/\n/' | sed -e 's/.*fullcount>//'}
+
+#Tmp
+alias gruntbuild=" grunt build && grunt watch & http-server &"
+alias gfind="grep -R"
+if [ `echo $SHELL` = "/bin/zsh" ]; then
+    alias -s gz='tar -xzvf'
+    alias -s tgz='tar -xzvf'
+    alias -s zip='unzip'
+    alias -s bz2='tar -xjvf'
+    alias -s php=vim
+    alias -s html=vim
+fi
+alias cat="ccat"
+alias useproxy="export ALL_PROXY=socks5://127.0.0.1:1080 all_proxy=socks5://127.0.0.1:1080"
+alias stopuseproxy="unset ALL_PROXY all_proxy"
+alias aws="ssh -i ~/Record/AWS/awsrh.pem ec2-user@ec2-54-169-68-115.ap-southeast-1.compute.amazonaws.com"
+weather() { curl -4 wttr.in/"$1" }
+logger ()
+{
+    time=`TZ="Asia/Shanghai"  date +"%Y-%m-%d %T"`;
+    echo "[$time] $*"
+}
+
+tyfind()
+{
+    grep -R "$1" ~/Data/main/tianya #| head -n $2 | tail -n 10
+}
+listCalc(){
+    FILE=
+    COLUMN=
+    if [ "$#" -eq 2 ]
+    then
+        FILE=$1
+        COLUMN=$2
+    elif [ "$#" -eq 1 ]
+    then
+        COLUMN=$1
+    else
+        echo "useage: $0 file column"
+        return 1
+    fi
+
+    cat $FILE | awk -F " " 'BEGIN {COUNT=0;MAX=0;MIN=99999999;SUM=0} $col!="" {COUNT+=1;SUM+=$col;if($col>MAX) MAX=$col fi;if($col<MIN) MIN=$col fi} END {if(COUNT>0) print "Sum="SUM,"Average="SUM/COUNT,"Min="MIN,"Max="MAX}' col=$COLUMN
+}
+function aria2(){
+    cd ~/Code/webui-aria2
+    nohup node node-server.js >/dev/null &
+}
+alias cnpm="npm --registry=https://registry.npm.taobao.org \
+    --cache=$HOME/.npm/.cache/cnpm \
+    --disturl=https://npm.taobao.org/dist \
+    --userconfig=$HOME/.cnpmrc"
+function gupdate(){
+    DIR=`pwd`
+    cd ~/Code
+    for repo in *
+    do
+        echo "Processing $repo"
+        cd $repo
+        git pull
+        cd ..
+    done
+    cd $DIR
+}
+#percol
+function ppgrep() {
+    if [[ $1 == "" ]]; then
+        PERCOL=percol
+    else
+        PERCOL="percol --query $1"
+    fi
+    ps aux | eval $PERCOL | awk '{ print $2 }'
+}
+
+function ppkill() {
+    if [[ $1 =~ "^-" ]]; then
+        QUERY=""            # options only
+    else
+        QUERY=$1            # with a query
+        [[ $# > 0 ]] && shift
+    fi
+    ppgrep $QUERY | xargs kill $*
+}
